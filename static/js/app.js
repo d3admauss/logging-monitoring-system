@@ -238,25 +238,33 @@ function toggleAutoSimulate() {
     const icon = document.getElementById('simulate-icon');
     
     if (isAutoSimulating) {
+        // --- TURNING OFF ---
         clearInterval(autoSimulateInterval);
         autoSimulateInterval = null;
         isAutoSimulating = false;
+        
         btnText.innerText = 'Start Auto Log';
         btn.classList.remove('bg-green-600', 'hover:bg-green-500', 'pulse-glow');
         btn.classList.add('bg-blue-600', 'hover:bg-blue-500');
         icon.classList.remove('spin-slow');
+        
         updateLogs();
+        updateStatusIndicator(false);
+        
     } else {
+        // --- TURNING ON ---
         isAutoSimulating = true;
+        
         btnText.innerText = 'Stop Auto Log';
         btn.classList.remove('bg-blue-600', 'hover:bg-blue-500');
         btn.classList.add('bg-green-600', 'hover:bg-green-500', 'pulse-glow');
         icon.classList.add('spin-slow');
+        
         generateLog();
         autoSimulateInterval = setInterval(generateLog, 1000);
+        updateStatusIndicator(true);
     }
 }
-
 // Generate a single log
 async function generateLog() {
     try {
@@ -346,6 +354,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 1000);
 
     setupKeyboardShortcuts();
+    updateStatusIndicator(false);
     
     console.log('✅ Dashboard ready!');
 });
@@ -406,4 +415,29 @@ function setupKeyboardShortcuts() {
             console.log('⌨️ Shortcut: Clear search');
         }
     });
+}
+
+// Update status indicator
+function updateStatusIndicator(isOn) {
+    const indicator = document.getElementById('status-indicator');
+    const dot = document.getElementById('status-dot');
+    const text = document.getElementById('status-text');
+    
+    if (isOn) {
+        indicator.classList.remove('status-bg-off');
+        indicator.classList.add('status-bg-on');
+        dot.classList.remove('status-dot-off');
+        dot.classList.add('status-dot-on');
+        text.classList.remove('status-text-off');
+        text.classList.add('status-text-on');
+        text.innerText = 'ON';
+    } else {
+        indicator.classList.remove('status-bg-on');
+        indicator.classList.add('status-bg-off');
+        dot.classList.remove('status-dot-on');
+        dot.classList.add('status-dot-off');
+        text.classList.remove('status-text-on');
+        text.classList.add('status-text-off');
+        text.innerText = 'OFF';
+    }
 }
