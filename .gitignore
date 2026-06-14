@@ -1,0 +1,16 @@
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Database file (we don't want to share your local logs)
+logs.db
+
+# IDE settings
+.vscode/
+.idea/

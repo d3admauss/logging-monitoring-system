@@ -1,0 +1,181 @@
+/* Custom Animations */
+@keyframes fadeIn { 
+    from { opacity: 0; } 
+    to { opacity: 1; } 
+}
+
+@keyframes slideIn { 
+    from { opacity: 0; transform: translateX(-20px); } 
+    to { opacity: 1; transform: translateX(0); } 
+}
+
+@keyframes pulse-glow { 
+    0%, 100% { box-shadow: 0 0 5px rgba(59, 130, 246, 0.5); } 
+    50% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.8); } 
+}
+
+@keyframes number-pop { 
+    0% { transform: scale(1); } 
+    50% { transform: scale(1.15); } 
+    100% { transform: scale(1); } 
+}
+
+@keyframes spin-slow { 
+    from { transform: rotate(0deg); } 
+    to { transform: rotate(360deg); } 
+}
+
+.fade-in { animation: fadeIn 0.2s ease-out; }
+.slide-in { animation: slideIn 0.3s ease-out; }
+.number-pop { animation: number-pop 0.3s ease-out; }
+.spin-slow { animation: spin-slow 2s linear infinite; }
+.pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+
+/* Card Styles */
+.metric-card { 
+    transition: all 0.3s ease; 
+    cursor: pointer; 
+}
+
+.metric-card:hover { 
+    transform: translateY(-4px); 
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5); 
+}
+
+/* Active Filter States */
+.metric-card.active-indigo { 
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.6); 
+    background-color: rgba(99, 102, 241, 0.1); 
+}
+
+.metric-card.active-blue { 
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.6); 
+    background-color: rgba(59, 130, 246, 0.1); 
+}
+
+.metric-card.active-yellow { 
+    box-shadow: 0 0 0 2px rgba(234, 179, 8, 0.6); 
+    background-color: rgba(234, 179, 8, 0.1); 
+}
+
+.metric-card.active-red { 
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.6); 
+    background-color: rgba(239, 68, 68, 0.1); 
+}
+
+/* Table Row Styles */
+.log-row { 
+    transition: all 0.2s ease; 
+}
+
+.log-row:hover { 
+    background-color: rgba(255, 255, 255, 0.05); 
+    transform: translateX(4px); 
+}
+
+.btn-animate { 
+    transition: all 0.2s ease; 
+}
+
+.btn-animate:active { 
+    transform: scale(0.95); 
+}
+
+/* Custom Dark Mode Range Slider */
+input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+    background: transparent;
+}
+
+input[type=range]:focus { 
+    outline: none; 
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 6px;
+    cursor: pointer;
+    background: #334155;
+    border-radius: 3px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    background: #3b82f6;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -6px;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.6);
+    transition: transform 0.1s;
+}
+
+input[type=range]::-webkit-slider-thumb:hover { 
+    transform: scale(1.2); 
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar { 
+    width: 8px; 
+    height: 8px; 
+}
+
+::-webkit-scrollbar-track { 
+    background: #0f172a; 
+}
+
+::-webkit-scrollbar-thumb { 
+    background: #334155; 
+    border-radius: 4px; 
+}
+
+::-webkit-scrollbar-thumb:hover { 
+    background: #475569; 
+}
+
+/* System Metrics Progress Bars */
+.progress-bar-bg { 
+    background-color: #1e293b; 
+    border-radius: 9999px; 
+    height: 8px; 
+    width: 100%; 
+    overflow: hidden; 
+}
+
+.progress-bar-fill { 
+    height: 100%; 
+    border-radius: 9999px; 
+    transition: width 0.5s ease-out, background-color 0.3s ease; 
+}
+
+/* Expandable Row Styles */
+.log-row { 
+    cursor: pointer; 
+}
+
+.chevron-icon {
+    transition: transform 0.2s ease;
+}
+
+.log-row.expanded .chevron-icon {
+    transform: rotate(90deg);
+}
+
+.details-row {
+    display: none;
+    background-color: rgba(15, 23, 42, 0.8); /* Darker background */
+}
+
+.details-row.show {
+    display: table-row;
+}
+
+.copy-btn {
+    transition: all 0.2s ease;
+}
+
+.copy-btn:active {
+    transform: scale(0.95);
+}
