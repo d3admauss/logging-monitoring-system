@@ -68,7 +68,7 @@ Follow these steps to run the project locally on your machine.
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/d3admauss/logging-monitoring-system.git
+git clone https://github.com/salk3n/logging-monitoring-system.git
 cd logging-monitoring-system
 ```
 
